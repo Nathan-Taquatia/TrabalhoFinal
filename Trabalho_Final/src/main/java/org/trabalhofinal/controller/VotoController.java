@@ -23,7 +23,7 @@ public class VotoController {
     private final VotoRepository votoRepository;
 
     public VotoController(){
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("CidadesDB");
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("VotoDB");
         EntityManager em = factory.createEntityManager();
         this.votoRepository = new VotoRepository(em);
         this.funcionarioRepository = new FuncionarioRepository(em);
@@ -38,8 +38,12 @@ public class VotoController {
 
             if(funcionario == null) {
                 funcionario = new Funcionario(nomeFuncionario);
-            } else if ( restaurante==null) {
+                funcionarioRepository.inserir(funcionario);
+            }
+
+            if ( restaurante==null) {
                 restaurante = new Restaurante(nomeRestaurante);
+                restauranteRepository.inserir(restaurante);
 
             }
 

@@ -26,4 +26,19 @@ public class RestauranteController {
 
     }
 
+    public List<Restaurante> buscarIdRes(String id) throws AplicacaoException {
+        try {
+            return restauranteRepository.buscarIdRes(id);
+        }catch (PersistenceException e) {
+            throw new AplicacaoException("Falha ao inserir Restaurante");
+        }
+    }
+    public List<Restaurante> buscar() throws  AplicacaoException {
+        try {
+            return restauranteRepository.buscar();
+        }catch (PersistenceException e) {
+            throw new AplicacaoException("Falha ao inserir Restaurante");
+        }
+    }
+
 }

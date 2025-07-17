@@ -1,5 +1,6 @@
 package org.trabalhofinal;
 
+import org.trabalhofinal.controller.RestauranteController;
 import org.trabalhofinal.controller.VotoController;
 import org.trabalhofinal.exception.AplicacaoException;
 import org.trabalhofinal.util.TecladoUtil;
@@ -10,6 +11,7 @@ import java.util.Calendar;
 public class Main {
     private static VotoController votoController = new VotoController();
     private static FuncionarioController funcionarioControllerController = new FuncionarioController();
+    private static RestauranteController restauranteController = new RestauranteController();
 
     private static boolean sair = false;
 
@@ -35,7 +37,7 @@ public class Main {
                     listarFuncionarios();
                     break;
                 case 3:
-
+                    listarRestaurantes();
                     break;
                 case 4:
 
@@ -70,7 +72,7 @@ private static void listarFuncionarios() throws AplicacaoException{
 
 }
 private static void listarRestaurantes() throws  AplicacaoException{
-    System.out.println();
+    System.out.println(restauranteController.buscar());
         
 }
 
